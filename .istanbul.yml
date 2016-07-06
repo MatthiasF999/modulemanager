@@ -1,0 +1,7 @@
+instrumentation:
+  extension: .js
+  root: ./src
+  include-all-sources: true
+  verbose: true
+reporting:
+  dir: "coverage"

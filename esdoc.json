@@ -1,0 +1,22 @@
+{
+  "source": "./src",
+  "destination": "./doc",
+  "plugins": [
+    {"name": "esdoc-es7-plugin"}
+  ],
+  "test": {
+	  "type": "mocha",
+	  "source": "./test"
+	},
+	"title": "Module Manager",
+	"lint": true,
+  "index": "./README.md",
+  "package": "./package.json",
+  "manual": {
+    "overview": ["./manual/overview.md"],
+    "installation": ["./manual/installation.md"],
+    "usage": ["./manual/usage_ModuleManager.md", "./manual/usage_Modules.md"],
+		"example": ["./manual/example_ModuleManager.md", "./manual/example_Modules.md"],
+    "changelog": ["./manual/changelog.md"]
+  }
+}

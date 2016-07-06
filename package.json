@@ -1,0 +1,59 @@
+{
+  "name": "modulemanager",
+  "version": "1.0.0",
+  "description": "a module manager to enable a modular structure",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node_modules/.bin/nodemon src/test.js --exec babel-node",
+    "compile": "node_modules/.bin/babel src -d dist",
+    "prepublish": "npm run compile",
+    "test": "node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill",
+    "coverage": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test -- --compilers js:babel-register --require babel-polyfill"
+  },
+  "bin": {
+    "modulemanager": "dist/index.js"
+  },
+  "keywords": [
+    "plugin",
+    "socket",
+    "modular",
+    "node"
+  ],
+  "files": [
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MatthiasF999/modulemanager.git"
+  },
+  "author": "Matthias Feldmann",
+  "license": "ISC",
+  "dependencies": {
+    "callsite": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-eslint": "^6.0.4",
+    "babel-plugin-transform-class-properties": "^6.9.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-export-extensions": "^6.8.0",
+    "babel-plugin-transform-function-bind": "^6.8.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "esdoc": "^0.4.7",
+    "esdoc-es7-plugin": "0.0.3",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.4.2",
+    "eslint-plugin-react": "^5.1.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
+  }
+}

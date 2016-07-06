@@ -1,0 +1,19 @@
+{
+	"parser": "babel-eslint",
+	"extends": "airbnb",
+	"rules": {
+		"indent": ["error", "tab"],
+		"no-console": "off",
+		"max-len": ["error", {
+			"ignoreComments": true,
+			"ignorePattern": "(let|const\\s.*\\s=\\s'.*';)|(it\\('.*',)"
+		}]
+	},
+	"env": {
+    "browser": false,
+    "node": true,
+    "amd": false,
+    "mocha": true,
+    "jasmine": false
+  }
+}

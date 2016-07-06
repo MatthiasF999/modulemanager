@@ -1,0 +1,5 @@
+src/
+.git
+doc
+manual
+npm-debug.log
