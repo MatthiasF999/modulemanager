@@ -1,6 +1,6 @@
 {
   "name": "modulemanager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a module manager to enable a modular structure",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "compile": "node_modules/.bin/babel src -d dist",
     "prepublish": "npm run compile",
     "test": "node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill",
-    "coverage": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test -- --compilers js:babel-register --require babel-polyfill"
+    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test -- --compilers js:babel-register --require babel-polyfill",
+		"coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "bin": {
     "modulemanager": "dist/index.js"
@@ -43,6 +44,7 @@
     "babel-preset-stage-2": "^6.5.0",
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
     "esdoc": "^0.4.7",
     "esdoc-es7-plugin": "0.0.3",
     "eslint": "^2.13.1",
@@ -52,8 +54,12 @@
     "eslint-plugin-react": "^5.1.1",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^2.5.3",
+    "mocha-lcov-reporter": "^1.2.0",
     "nodemon": "^1.9.2",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"
+  },
+	"engines": {
+    "node": "<=6"
   }
 }
