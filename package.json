@@ -1,15 +1,15 @@
 {
   "name": "modulemanager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a module manager to enable a modular structure",
   "main": "dist/index.js",
   "scripts": {
     "start": "node_modules/.bin/nodemon src/test.js --exec babel-node",
-    "compile": "node_modules/.bin/babel src -d dist",
+    "compile": "node_modules/.bin/babel src -d dist --source-maps",
     "prepublish": "npm run compile",
-    "test": "node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill",
-    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test -- --compilers js:babel-register --require babel-polyfill",
-		"coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "test": "node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill --source-maps",
+    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test -- --compilers js:babel-register --require babel-polyfill --source-maps",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "bin": {
     "modulemanager": "dist/index.js"
@@ -59,7 +59,7 @@
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0"
   },
-	"engines": {
+  "engines": {
     "node": "<=6"
   }
 }
