@@ -7,8 +7,8 @@
     "start": "node_modules/.bin/nodemon src/test.js --exec babel-node",
     "compile": "node_modules/.bin/babel src -d dist --source-maps",
     "prepublish": "npm run compile",
-    "test": "node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill --source-maps",
-    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test -- --compilers js:babel-register --require babel-polyfill --source-maps",
+    "test": "node_modules/.bin/mocha --compilers js:babel-register --require babel-polyfill",
+    "cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha test -- --compilers js:babel-register --require babel-polyfill",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "bin": {
