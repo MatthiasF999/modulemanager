@@ -14,6 +14,7 @@ Place the variables in a JSON Object
 | --------- | ------------ | --------- | ------------------------------------ |
 | yes       | folder       | ./modules | folderpath relative to current file as string       |
 | yes       | moduleList   |           | List of modules by name or name and path to load |
+| yes       | passCaller   | true      | pass the modulemanager as this.parent to modules   |
 | yes       | options      |           | JSON Object for options to pass to modules      |
 
 ### Example
@@ -22,6 +23,8 @@ const options = {
 	folder: './folder/plugins',
 	// loads plugin1 and plugin2 from ./folder/plugins and plugin3 from ../
 	moduleList: ['plugin1', 'plugin2', {name: 'plugin3', path: '../plug3'}],
+	// pass modulemanager down to modules
+	passCaller: true,
 	// the options will be available through this.KEY
 	options: {
 		app: app, 			// available through this.app

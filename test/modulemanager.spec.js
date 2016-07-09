@@ -148,6 +148,7 @@ describe('ModuleManager', () => {
 		beforeEach(() => {
 			mmanager = new ModuleManager({
 				folder: './Modules',
+				caller: true,
 				options: {
 					test,
 				},
@@ -156,6 +157,16 @@ describe('ModuleManager', () => {
 		afterEach(() => {
 			test.reset();
 		});
+		/**
+		 * @test {ModuleManager#createModule}
+		 */
+		it('ModuleManager#createModule passes caller',
+			mochaAsync(async() => {
+				const mod = await mmanager
+					.createModule('Module2', './Modules/Mod2');
+				expect(mod.module.parent).to.be.equal(mmanager);
+			})
+		);
 		/**
 		 * @test {ModuleManager}
 		 */

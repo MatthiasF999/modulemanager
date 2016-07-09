@@ -14,6 +14,8 @@ export default class ModuleManager {
 	 * @param {!Object} options - requires a json object with options
 	 * @param {string} [options.folder='modules'] - string with the folderPath relative to caller
 	 * @param {boolean} [options.logging=false] - logs if a method is run
+	 * @param {boolean} [options.done] - called when constructor completed
+	 * @param {boolean} [options.passCaller=true] - pass modulemanager as parrent to modules
 	 * @param {Array<string, Object>} [options.moduleList] - array of modules to activate
 	 * @param {Object} [options.moduleList.name] - module name
 	 * @param {Object} [options.moduleList.path] - path to the module
@@ -28,6 +30,7 @@ export default class ModuleManager {
 		const stack = callsite();
 		const blank = () => {};
 		const done = options.done || blank();
+		const caller = options.passCaller || true;
 		/**
 		 * Creates a module from the module subclass
 		 * @private
@@ -64,6 +67,7 @@ export default class ModuleManager {
 		 * @type {Object}
 		 */
 		this.options = options.options || {};
+		if (caller === true) this.options.parent = this;
 		/**
 		 * logging when function is run
 		 * @type {boolean}
