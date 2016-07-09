@@ -1,5 +1,6 @@
 const path = require('path');
 const callsite = require('callsite');
+const chalk = require('chalk');
 
 /**
  * Manages different modules
@@ -91,7 +92,11 @@ export default class ModuleManager {
 		await this.callModule(module, async (mod) => {
 			try {
 				await mod.module.install();
-				if (this.logging) console.info(`${module} installed`);
+				if (this.logging) {
+					console.info(
+`${chalk.bgBlue('Info')} ${chalk.blue(`${module} installed`)}`
+					);
+				}
 				if (opt.activate) await this.activate(mod);
 			} catch (e) {
 				throw new SyntaxError(
@@ -117,7 +122,11 @@ ${e}`
 				try {
 					await this.deactivate(module);
 					await mod.module.uninstall();
-					if (this.logging) console.info(`${module} uninstalled`);
+					if (this.logging) {
+						console.info(
+`${chalk.bgBlue('Info')} ${chalk.blue(`${module} uninstalled`)}`
+						);
+					}
 				} catch (e) {
 					throw new SyntaxError(
 `Error uninstalling ${module}
@@ -129,7 +138,10 @@ ${e}`
 			await this.callModule(module, async (mod) => {
 				try {
 					await mod.module.uninstall();
-					if (this.logging) console.info(`${module} uninstalled`);
+					if (this.logging) {
+						console.info(
+`${chalk.bgBlue('Info')} ${chalk.blue(`${module} uninstalled`)}`);
+					}
 				} catch (e) {
 					throw new SyntaxError(
 `Error uninstalling ${module}
@@ -154,7 +166,11 @@ ${e}`
 				await mod.module.activate();
 				const name = typeof module === 'object' ? module.name : module;
 				this.moduleMap.set(name, mod);
-				if (this.logging) console.info(`${module} activated`);
+				if (this.logging) {
+					console.info(
+`${chalk.bgBlue('Info')} ${chalk.blue(`${module} activated`)}`
+					);
+				}
 			} catch (e) {
 				throw new SyntaxError(
 `Error activating ${module}
@@ -174,7 +190,11 @@ ${e}`
 			try {
 				await mod.module.deactivate();
 				this.moduleMap.delete(module);
-				if (this.logging) console.info(`${module} deactivated`);
+				if (this.logging) {
+					console.info(
+`${chalk.bgBlue('Info')} ${chalk.blue(`${module} deactivated`)}`
+					);
+				}
 			} catch (e) {
 				throw new SyntaxError(
 `Error deactivating ${module}
@@ -202,7 +222,11 @@ ${e}`
 		await this.callModule(module, async (mod) => {
 			try {
 				await mod.module.update();
-				if (this.logging) console.info(`${module} updated`);
+				if (this.logging) {
+					console.info(
+`${chalk.bgBlue('Info')} ${chalk.blue(`${module} updated`)}`
+					);
+				}
 				if (opt.activate) await this.activate(mod);
 			} catch (e) {
 				throw new SyntaxError(
@@ -268,7 +292,7 @@ ${e}`
 					.then((mod2) => fn.call(this, mod2));
 			}
 		} catch (e) {
-			console.error(e);
+			console.error(`${chalk.bgRed('Error')} ${chalk.red(e)}`);
 		}
 	}
 

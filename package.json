@@ -1,6 +1,6 @@
 {
   "name": "modulemanager",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "a module manager to enable a modular structure",
   "main": "dist/index.js",
   "scripts": {
@@ -30,7 +30,8 @@
   "author": "Matthias Feldmann",
   "license": "ISC",
   "dependencies": {
-    "callsite": "^1.0.0"
+    "callsite": "^1.0.0",
+    "chalk": "^1.1.3"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",

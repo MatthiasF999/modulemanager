@@ -312,12 +312,9 @@ describe('ModuleManager', () => {
 					sinon.stub(console, 'error');
 
 					await mmanager.deactivate('Module1');
-					const error = console.error.args[0][0].toString();
-					const message = 'ReferenceError: Module1 not found in active list';
 
+					expect(console.error).to.be.calledOnce;
 					console.error.restore();
-					expect(error).to
-						.equal(message);
 				})
 			);
 			/**

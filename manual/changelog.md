@@ -8,3 +8,5 @@ Fixed babel sourcemaps
 Added option to pass the caller to the modules
 # 1.1.1 (2016-07-09)
 Remove options being necessary
+# 1.1.2 (2016-07-09)
+Added colors to console to difference messages
