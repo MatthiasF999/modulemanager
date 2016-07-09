@@ -1,6 +1,6 @@
 {
   "name": "modulemanager",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a module manager to enable a modular structure",
   "main": "dist/index.js",
   "scripts": {

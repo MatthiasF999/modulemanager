@@ -29,13 +29,14 @@ describe('ModuleManager', () => {
 		/**
 		 * @test {ModuleManager#constructor}
 		 */
-		it('ModuleManager#constructor declines missing options', () => {
-			const fn = () => {
-				// eslint-disable-next-line no-new
-				new ModuleManager();
-			};
-			expect(fn).to.throw(ReferenceError);
-			expect(fn).to.throw('options missing');
+		it('ModuleManager#constructor accepts missing options', () => {
+			const mmanager = new ModuleManager();
+			const dir = path.dirname(__filename);
+			const folder = path.normalize(`${dir}/modules`);
+			expect(mmanager.folder).to.be.equal(folder);
+			expect(mmanager.moduleMap).to.be.blank;
+			expect(mmanager.options).to.be.blank;
+			expect(mmanager.logging).to.be.false;
 		});
 			/**
 			 * @test {ModuleManager#constructor}

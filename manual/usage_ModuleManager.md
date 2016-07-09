@@ -8,7 +8,7 @@ const moduleManager = new ModuleManager(options);
 ```
 
 ## Variables
-Place the variables in a JSON Object
+Place the variables in a JSON Object (or call without to use defaults)
 
 | optional  | variable     | default   | description                          |
 | --------- | ------------ | --------- | ------------------------------------ |

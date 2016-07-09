@@ -13,12 +13,13 @@ const moduleManager = new ModuleManager(options);
 ```
 
 ### Variables
-Place the variables in a JSON Object
+Place the variables in a JSON Object (or call without to use defaults)
 
 | optional  | variable     | default   | description                          |
 | --------- | ------------ | --------- | ------------------------------------ |
 | yes       | folder       | ./modules | folderpath relative to current file as string       |
 | yes       | moduleList   |           | List of modules by name or name and path to load |
+| yes       | passCaller   | true      | pass the modulemanager as this.parent to modules   |
 | yes       | options      |           | JSON Object for options to pass to modules      |
 
 #### Example

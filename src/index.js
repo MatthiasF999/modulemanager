@@ -11,7 +11,7 @@ const callsite = require('callsite');
 export default class ModuleManager {
 	/**
 	 * initializes all variables
-	 * @param {!Object} options - requires a json object with options
+	 * @param {Object}  [options] - requires a json object with options
 	 * @param {string} [options.folder='modules'] - string with the folderPath relative to caller
 	 * @param {boolean} [options.logging=false] - logs if a method is run
 	 * @param {boolean} [options.done] - called when constructor completed
@@ -23,14 +23,12 @@ export default class ModuleManager {
 	 * @throws {ReferenceError} throw referencerror when necessary options are missing
 	 */
 	constructor(options) {
-		if (!options) {
-			throw new ReferenceError('options missing');
-		}
-		const folder = options.folder || 'modules';
+		const opt = options || {};
+		const folder = opt.folder || 'modules';
 		const stack = callsite();
 		const blank = () => {};
-		const done = options.done || blank();
-		const caller = options.passCaller || true;
+		const done = opt.done || blank();
+		const caller = opt.passCaller || true;
 		/**
 		 * Creates a module from the module subclass
 		 * @private
@@ -66,16 +64,16 @@ export default class ModuleManager {
 		 * JSON object containing additional options
 		 * @type {Object}
 		 */
-		this.options = options.options || {};
+		this.options = opt.options || {};
 		if (caller === true) this.options.parent = this;
 		/**
 		 * logging when function is run
 		 * @type {boolean}
 		 */
-		this.logging = options.logging || false;
+		this.logging = opt.logging || false;
 
-		if (options.moduleList) {
-			activateAll(options.moduleList);
+		if (opt.moduleList) {
+			activateAll(opt.moduleList);
 		}
 	}
 
